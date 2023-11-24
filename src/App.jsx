@@ -1,7 +1,8 @@
 import {motion} from "framer-motion"
-
+import video from "./assets/semi_mountains.mp4"
 import Footer from "./components/Footer"
 import Navbar from "./components/Navbar"
+import Typewriter from 'typewriter-effect';
 
 const App = () => {
   const titleAnimation = {
@@ -69,38 +70,47 @@ const App = () => {
     }
   }
   return (
-    <div className="h-screen px-12 relative overflow-hidden">
+    <div className="h-screen px-12 relative overflow-hidden bg-black">
       <Navbar />
 
       <div className="absolute -top-12 -left-12 w-[300px] h-[300px] bg-[#AC7139] blur-[120px]"/>
       <div className="absolute bottom-0 -right-12 w-[300px] h-[300px] bg-[#749CB6] blur-[100px]"/>
-      <div>
-        <motion.img src="/img/circle.png" alt="art" className="w-[100px] absolute top-[100px] right-[380px] animate-spin-slow" variants={circleAnimation} initial="hidden" animate="show" />
-      </div>
-
-      <section className="h-[calc(100vh-80px)] flex flex-col items-center relative">
+            <section className="h-[calc(100vh-80px)] flex flex-col items-center relative">
         <div className="absolute left-[200px] top-[200px] h-[100px] flex items-center overflow-hidden">
           <motion.div
             variants={titleAnimation}
             initial="hidden"
             animate="show"
             className="flex text-6xl font-bold text-[#e6951d] drop-shadow-lg z-50">
-            {Array.from("Gallery-Art").map((letter,idx) => (
+            {Array.from("movita").map((letter,idx) => (
               <motion.span key={idx} variants={titleAnimationChildren}>{letter}</motion.span>
             ))}
           </motion.div>
         </div>
-        <div className="w-[500px] m-auto">
-          <motion.img src="/img/img.webp" alt="art" className="object-cover" variants={imgAnimation} initial="hidden" animate="show" />
+        <div className="w-[500px] m-auto flex  flex-col ">
+          <motion.video src={video} alt="art" loop autoPlay muted className="object-cover" variants={imgAnimation} initial="hidden" animate="show" />
+          <div className="text-[#AC7139] font-bold text-center text-3xl">
+
+          <Typewriter
+          options={{
+          strings: ['Araç Takip Sistemleri', 'Kamera Sistemleri','Güvenlik Sistemleri'],
+          autoStart: true,
+          loop:true
+          
+        }}
+      />
+          </div>
         </div>
-        <motion.div className="bg-[#0e0e0e] p-4 w-[300px] absolute bottom-[150px] right-[200px] drop-shadow-lg z-50" variants={explainAnimation} initial="hidden" animate="show">
-          <p className="text-[#eaeaea] text-sm text-justify">
-            a building where paintings and other works of art are shown to the public. Culture art galleries and museums of art. Shops that sell paintings are also called galleries.
+        <motion.div className="bg-[#749CB6] py-8 px-8 w-[300px] absolute bottom-[150px] right-[200px] drop-shadow-lg z-50 rounded-md " variants={explainAnimation} initial="hidden" animate="show">
+          
+          <p className="text-[#eaeaea] text-md text-center">
+          Movita, mobil araçlar için yerli mühendisler tarafından geliştirilen araç takip ve uzaktan izlemeli kamera kayıt özelliği bulunan bir sistemdir. Yeni nesil takip sistemi olarak bilinen mobil nvr cihazı sayesinde okul taşıtlarında koltuk sensörü cihazımız ile entegreli çalışmaktadır. Ayrıca bir çok yeni çözümler sunmaktadır.
           </p>
+         
         </motion.div>
       </section>
-      
       <Footer />
+      
     </div>
   )
 }

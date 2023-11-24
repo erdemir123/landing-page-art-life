@@ -1,9 +1,10 @@
 import {motion} from "framer-motion"
+import logoMovita from "../assets/movitaLogo.png"
 
 const Navbar = () => {
   const navbarAnimation = {
     hidden:{
-      y:-100,
+      y:-150,
     },
     show:{
       y:0,
@@ -14,12 +15,12 @@ const Navbar = () => {
     }
   }
   return (
-    <motion.nav className="flex justify-between items-center pt-4 relative z-50" variants={navbarAnimation} initial="hidden" animate="show">
+    <motion.nav className="flex justify-between items-center pt-4 relative z-50 text-[#AC7139] font-bold text-md " variants={navbarAnimation} initial="hidden" animate="show">
         <div>
-            <h1 className="font-bold text-xl">Art-life</h1>
+            <h1 className="font-bold text-xl"><img src={logoMovita} className="w-32"/></h1>
         </div>
         <ul className="w-[250px] flex justify-between items-center">
-            <li><a href="#" className="font-semibold text-sm">Art</a></li>
+            <li><a href="#" className="font-semibold text-sm"></a></li>
             <li><a href="#" className="font-semibold text-sm">Painting</a></li>
             <li><a href="#" className="font-semibold text-sm">Discover</a></li>
         </ul>

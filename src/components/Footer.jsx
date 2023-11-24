@@ -15,7 +15,7 @@ const Footer = () => {
   }
   return (
     <motion.footer className="flex justify-center" variants={footerAnimation} initial="hidden" animate="show">
-        <ul className="w-[300px] flex justify-between items-center">
+        <ul className="w-[300px] flex justify-between items-center border-2 border-t-emerald-900">
         <li><a href="#" className="text-sm font-semibold">Instagram</a></li>
         <li><a href="#" className="text-sm font-semibold">Snapchat</a></li>
         <li><a href="#" className="text-sm font-semibold">Dribbble</a></li>
